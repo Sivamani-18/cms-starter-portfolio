@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import client from '../../lib/apolloClient';
-import { GET_PROFILE, GET_PROJECTS } from '../../lib/queries';
+import { GET_PROFILE } from '../../lib/queries';
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,14 +11,11 @@ export default async function handler(
     const { data: profileData } = await client.query({ query: GET_PROFILE });
     console.log('Profile data fetched:', profileData);
 
-    const { data: projectsData } = await client.query({ query: GET_PROJECTS });
-    console.log('Projects data fetched:', projectsData);
-
-    res
-      .status(200)
-      .json({ profile: profileData.profile, projects: projectsData.Project });
+    res.status(200).json({
+      profile: profileData.profiles[0],
+    });
   } catch (error) {
-    console.error('Error fetching data', error);
-    res.status(500).json({ error: 'Failed to fetch data' });
+    console.error('Error fetching profile data', error);
+    res.status(500).json({ error: 'Failed to fetch profile data' });
   }
 }

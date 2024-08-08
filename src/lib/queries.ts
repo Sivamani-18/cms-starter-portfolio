@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const GET_PROFILE = gql`
   query GetProfile {
-    profile(where: { id: "clzl31nlq09m207pgsumzbsb4" }) {
+    profiles {
       name
       bio
       dob
@@ -18,7 +18,7 @@ export const GET_PROFILE = gql`
 
 export const GET_PROJECTS = gql`
   query {
-    project(where: { id: "clzl2cx4p092z0bpigrfmwfai" }) {
+    projects {
       name
       slug
       description

@@ -12,6 +12,7 @@ const Home: FC = () => {
       try {
         const res = await fetch('/api/profile');
         const data = await res.json();
+        console.log('Profile data:', data);
         setProfile(data.profile);
       } catch (error) {
         console.error('Failed to fetch profile data', error);
@@ -22,6 +23,7 @@ const Home: FC = () => {
       try {
         const res = await fetch('/api/projects');
         const data = await res.json();
+        console.log('Projects data:', data);
         setProjects(data.projects);
       } catch (error) {
         console.error('Failed to fetch projects data', error);

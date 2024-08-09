@@ -2,6 +2,7 @@
 
 import { FC, useEffect, useState } from 'react';
 import { Profile, Project } from '../types/types';
+import { Header } from './Components/Header/Header';
 
 const Home: FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -38,6 +39,7 @@ const Home: FC = () => {
 
   return (
     <div className='min-h-screen bg-gray-100'>
+      <Header />
       <header className='bg-white shadow'>
         <div className='max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8'>
           <h1 className='text-3xl font-bold text-gray-900'>Profile</h1>
@@ -49,7 +51,7 @@ const Home: FC = () => {
             <div className='p-6 bg-white border-b border-gray-200'>
               <div className='flex items-center space-x-4'>
                 <img
-                  className='h-12 w-12 rounded-full'
+                  className='size-40 rounded-full'
                   src={profile.profilePicture.url}
                   alt={profile.name}
                 />

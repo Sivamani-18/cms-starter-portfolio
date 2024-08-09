@@ -67,8 +67,6 @@ const Home: FC = () => {
 
   const logoUrl = resources?.logo?.url || '';
 
-  console.log('url', logoUrl);
-
   return (
     <div className='min-h-screen bg-gray-100'>
       {loading && <Loader />}

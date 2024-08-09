@@ -1,6 +1,6 @@
 :root {
-  --primary-light: 81 121 111;
-  --primary-dark: 41 81 71;
+  --primary-light: 253 86 42;
+  --primary-dark: 29 161 243;
   --primary-content-light: 255 255 255;
   --primary-content-dark: 255 255 255;
 
@@ -14,17 +14,17 @@
   --accent-content-light: 255 255 255;
   --accent-content-dark: 255 255 255;
 
-  --button-primary-light: 81 121 111;
-  --button-primary-dark: 41 81 71;
+  --button-primary-light: 253 86 42;
+  --button-primary-dark: 29 161 243;
   --btn-primary-content-light: 255 255 255;
   --btn-primary-content-dark: 255 255 255;
-  --btn-primary-states-light: 81 121 111;
-  --btn-primary-states-dark: 41 81 71;
+  --btn-primary-states-light: 253 86 42;
+  --btn-primary-states-dark: 29 161 243;
 
   --button-secondary-light: 255 255 255;
   --button-secondary-dark: 30 30 30;
-  --btn-secondary-content-light: 81 121 111;
-  --btn-secondary-content-dark: 81 121 111;
+  --btn-secondary-content-light: 253 86 42;
+  --btn-secondary-content-dark: 29 161 243;
   --btn-secondary-states-light: 3 60 124;
   --btn-secondary-states-dark: 3 50 104;
 
@@ -42,8 +42,8 @@
 
   --baseColor-light: 49 49 49;
   --baseColor-dark: 230 230 230;
-  --titleColor-light: 81 121 111;
-  --titleColor-dark: 81 121 111;
+  --titleColor-light: 253 86 42;
+  --titleColor-dark: 29 161 243;
   --body-light: 248 248 248;
   --body-dark: 30 30 30;
   --card-light: 248 248 248;

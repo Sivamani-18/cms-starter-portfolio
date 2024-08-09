@@ -1,3 +1,35 @@
 .hero-area {
-  @apply relative z-10 overflow-hidden bg-[#333] bg-center bg-cover text-white;
+  @apply relative z-10 overflow-hidden bg-cover text-white;
+}
+
+.hero-area .hero-content {
+  @apply min-h-screen relative z-10 flex justify-center;
+}
+
+.hero-area:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+
+  @apply bg-black bg-opacity-[0.2] dark:bg-opacity-[0.5];
+}
+
+.hero-area .hero-head {
+  @apply text-[90px] font-sans font-bold;
+}
+
+.hero-area .hero-head small {
+  @apply font-sans text-[24px] block mb-3;
+}
+
+.typed-cursor {
+  @apply text-white;
+}
+
+.typing-effect {
+  @apply text-primary-light dark:text-primary-dark;
 }

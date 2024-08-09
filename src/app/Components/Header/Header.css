@@ -1,0 +1,11 @@
+.navbar-nav {
+  @apply flex gap-6;
+}
+
+.nav-link {
+  @apply text-base font-sans;
+}
+
+.nav-link.active {
+  @apply font-bold;
+}

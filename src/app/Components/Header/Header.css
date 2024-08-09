@@ -1,11 +1,19 @@
+.site-header {
+  @apply absolute w-full z-[1001];
+}
+
 .navbar-nav {
   @apply flex gap-6;
 }
 
 .nav-link {
-  @apply text-base font-sans;
+  @apply text-lg font-sans font-bold text-navbarContent-light;
 }
 
 .nav-link.active {
-  @apply font-bold;
+  @apply text-primary-light dark:text-primary-dark;
+}
+
+.navbar-brand {
+  @apply bg-white rounded-full p-1;
 }

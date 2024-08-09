@@ -1,12 +1,29 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
-import { Profile, Project } from '../types/types';
+import { Profile, Project, UsefulResource } from '../types/types';
 import { Header } from './Components/Header/Header';
+import { HeroCard } from './Components/Card/HeroCard';
+import Loader from './Components/Loader/Loader';
 
 const Home: FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [resources, setResources] = useState<UsefulResource | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const handleLoading = () => setLoading(false);
+    window.addEventListener('load', handleLoading);
+    return () => window.removeEventListener('load', handleLoading);
+  }, []);
+
+  const handleThemeChange = (isLoading: boolean) => {
+    setLoading(isLoading);
+    if (!isLoading) {
+      // Add any additional logic needed after theme change
+    }
+  };
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -31,21 +48,33 @@ const Home: FC = () => {
       }
     };
 
+    const fetchResources = async () => {
+      try {
+        const res = await fetch('/api/usefulresources');
+        const data = await res.json();
+        setResources(data.resources);
+      } catch (error) {
+        console.error('Failed to fetch resources data', error);
+      }
+    };
+
+    fetchResources();
     fetchProfile();
     fetchProjects();
   }, []);
 
   if (!profile) return <div>Loading...</div>;
 
+  const logoUrl = resources?.logo?.url || '';
+
   return (
     <div className='min-h-screen bg-gray-100'>
-      <Header />
-      <header className='bg-white shadow'>
-        <div className='max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8'>
-          <h1 className='text-3xl font-bold text-gray-900'>Profile</h1>
-        </div>
-      </header>
+      {loading && <Loader />}
+      <Header onThemeChange={handleThemeChange} LogoImage={logoUrl} />
       <main>
+        <div className='hero-section'>
+          <HeroCard />
+        </div>
         <div className='max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
           <div className='bg-white overflow-hidden shadow-sm sm:rounded-lg'>
             <div className='p-6 bg-white border-b border-gray-200'>

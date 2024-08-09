@@ -19,3 +19,15 @@ export interface Project {
     url: string;
   };
 }
+
+export interface Asset {
+  id: string;
+  url: string;
+  __typename: string;
+}
+
+export interface UsefulResource {
+  logo: Asset;
+  heroCardBg: Asset;
+  __typename: string;
+}

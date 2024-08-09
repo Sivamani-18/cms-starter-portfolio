@@ -29,3 +29,18 @@ export const GET_PROJECTS = gql`
     }
   }
 `;
+
+export const GetUsefulResources = gql`
+  query {
+    usefulResources {
+      logo {
+        id
+        url
+      }
+      heroCardBg {
+        id
+        url
+      }
+    }
+  }
+`;

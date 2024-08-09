@@ -1,3 +1,7 @@
+.site-header {
+  @apply absolute w-full z-[1001];
+}
+
 .navbar-nav {
   @apply flex gap-6;
 }

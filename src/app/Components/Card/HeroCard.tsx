@@ -38,8 +38,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({}) => {
           <div className='grid grid-cols-2 items-center justify-center w-full'>
             <div className='col-span-1 content-block'>
               <h1 className='hero-head'>
-                <small>Hello, I'm</small>
-
+                <small>Hello, I&apos;m</small>
                 <TypingEffect
                   strings={['Sivamani']}
                   loop={true}

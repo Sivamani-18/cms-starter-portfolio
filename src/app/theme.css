@@ -1,0 +1,68 @@
+:root {
+  --primary-light: 81 121 111;
+  --primary-dark: 41 81 71;
+  --primary-content-light: 255 255 255;
+  --primary-content-dark: 255 255 255;
+
+  --secondary-light: 54 79 82;
+  --secondary-dark: 24 49 52;
+  --secondary-content-light: 255 255 255;
+  --secondary-content-dark: 255 255 255;
+
+  --accent-light: 55 165 144;
+  --accent-dark: 45 155 134;
+  --accent-content-light: 255 255 255;
+  --accent-content-dark: 255 255 255;
+
+  --button-primary-light: 81 121 111;
+  --button-primary-dark: 41 81 71;
+  --btn-primary-content-light: 255 255 255;
+  --btn-primary-content-dark: 255 255 255;
+  --btn-primary-states-light: 81 121 111;
+  --btn-primary-states-dark: 41 81 71;
+
+  --button-secondary-light: 255 255 255;
+  --button-secondary-dark: 30 30 30;
+  --btn-secondary-content-light: 81 121 111;
+  --btn-secondary-content-dark: 81 121 111;
+  --btn-secondary-states-light: 3 60 124;
+  --btn-secondary-states-dark: 3 50 104;
+
+  --navbar-light: 54 79 82;
+  --navbar-dark: 24 49 52;
+  --navbar-content-light: 255 255 255;
+  --navbar-content-dark: 255 255 255;
+
+  --header-light: 248 248 248;
+  --header-dark: 30 30 30;
+  --header-content-light: 54 79 82;
+  --header-content-dark: 255 255 255;
+  --header-icon-light: 54 79 82;
+  --header-icon-dark: 255 255 255;
+
+  --baseColor-light: 49 49 49;
+  --baseColor-dark: 230 230 230;
+  --titleColor-light: 81 121 111;
+  --titleColor-dark: 81 121 111;
+  --body-light: 248 248 248;
+  --body-dark: 30 30 30;
+  --card-light: 248 248 248;
+  --card-dark: 40 40 40;
+
+  --neutral-light: 255 255 255;
+  --neutral-dark: 30 30 30;
+  --outlineColor-light: 191 191 191;
+  --outlineColor-dark: 151 151 151;
+  --info-light: 37 99 235;
+  --info-dark: 87 149 235;
+  --success-light: 18 110 52;
+  --success-dark: 48 140 82;
+  --warning-light: 255 95 73;
+  --warning-dark: 255 125 103;
+  --error-light: 220 38 38;
+  --error-dark: 250 78 78;
+  --disabled-light: 233 236 239;
+  --disabled-dark: 100 100 100;
+  --transparent-light: transparent;
+  --transparent-dark: transparent;
+}

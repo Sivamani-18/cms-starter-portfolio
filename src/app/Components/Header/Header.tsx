@@ -1,20 +1,37 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 import Logo from '../../assets/image/logo.svg';
 
 import '../../Components/Header/Header.css';
+import ThemeToggle from '../Theme/ThemeToggle';
+import Image from 'next/image';
 
-interface HeaderProps {}
+interface HeaderProps {
+  onThemeChange: (loading: boolean) => void;
+  LogoImage?: string | undefined;
+}
 
-export const Header: React.FC<HeaderProps> = ({}) => {
+export const Header: React.FC<HeaderProps> = ({
+  onThemeChange,
+  LogoImage = '',
+}) => {
   return (
     <header className='site-header' id='site-header'>
       <nav className='navbar navbar-expand-xl' id='site-navbar'>
         <div className='container mx-auto flex items-center justify-between py-4'>
           <Link className='navbar-brand' href='/'>
-            <Image src={Logo} alt='logo' height={50} />
+            {LogoImage ? (
+              <Image
+                src={LogoImage}
+                alt='logo'
+                height={50}
+                width={50}
+                unoptimized
+              />
+            ) : (
+              <Logo width={100} height={50} alt='logo' />
+            )}
           </Link>
           <button
             className='navbar-toggler'
@@ -70,6 +87,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
               </li>
             </ul>
           </div>
+          <ThemeToggle onThemeChange={onThemeChange} />
         </div>
       </nav>
     </header>

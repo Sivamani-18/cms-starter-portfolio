@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "export": "next export",
+    "lint": "next lint",
+    "build:staging": "next build"
   },
   "dependencies": {
     "@apollo/client": "^3.11.4",

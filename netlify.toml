@@ -1,5 +1,6 @@
 [build]
   command = "NEXT_PUBLIC_BASE_URL=\"${NEXT_PUBLIC_BASE_URL:-$URL}\" npm run build"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "18.17.0"

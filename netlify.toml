@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build:staging"
+  command = "NEXT_PUBLIC_BASE_URL=\"${NEXT_PUBLIC_BASE_URL:-$URL}\" npm run build"
 
 [build.environment]
   NODE_VERSION = "18.17.0"
@@ -7,21 +7,18 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Redirects for serving Next.js static assets correctly
 [[redirects]]
   from = "/_next/static/*"
   to = "/_next/static/:splat"
   status = 200
   force = true
 
-# Catch-all redirect for SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = true
 
-# Cache control headers for better performance
 [[headers]]
   for = "/_next/static/*"
   [headers.values]

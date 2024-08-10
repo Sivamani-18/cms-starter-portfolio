@@ -4,7 +4,11 @@ export const GET_PROFILE = gql`
   query GetProfile {
     profiles {
       name
+      shortName
+      textLogo
+      role
       bio
+      country
       dob
       mobileNo
       contactInfo
@@ -12,6 +16,7 @@ export const GET_PROFILE = gql`
         url
       }
       slug
+      skills
     }
   }
 `;

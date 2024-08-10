@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { TypingEffect } from 'react-typed.ts';
 
 import './HeroCard.css';
-import { UsefulResource } from '@/types/types';
+import { Profile, UsefulResource } from '@/types/types';
+import { sayGreeting } from '@/utils/HelperFunctions';
 
 interface HeroCardProps {}
 
 export const HeroCard: React.FC<HeroCardProps> = ({}) => {
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [resources, setResources] = useState<UsefulResource | null>(null);
+
   useEffect(() => {
     const fetchResources = async () => {
       try {
@@ -19,10 +22,26 @@ export const HeroCard: React.FC<HeroCardProps> = ({}) => {
       }
     };
 
+    const fetchProfile = async () => {
+      try {
+        const res = await fetch('/api/profile');
+        const data = await res.json();
+        console.log('Profile data:', data);
+        setProfile(data.profile);
+      } catch (error) {
+        console.error('Failed to fetch profile data', error);
+      }
+    };
+
+    fetchProfile();
     fetchResources();
   }, []);
 
   const heroBG = resources?.heroCardBg?.url || '';
+  const shortName = profile?.shortName || 'Sivamani';
+  const skills = profile?.skills || ['React', 'NextJS', 'WordPress'];
+
+  console.log('profile', profile);
 
   return (
     <div
@@ -38,9 +57,9 @@ export const HeroCard: React.FC<HeroCardProps> = ({}) => {
           <div className='grid grid-cols-2 items-center justify-center w-full'>
             <div className='col-span-1 content-block'>
               <h1 className='hero-head'>
-                <small>Hello, I&apos;m</small>
+                <small>{sayGreeting()}, I&apos;m</small>
                 <TypingEffect
-                  strings={['Sivamani']}
+                  strings={[shortName]}
                   loop={true}
                   cursorChar='|'
                   typeSpeed={500}
@@ -50,21 +69,14 @@ export const HeroCard: React.FC<HeroCardProps> = ({}) => {
                 />
               </h1>
               <p>
-                A passionate <strong>Web Developer</strong> from{' '}
-                <strong>India!</strong>
+                A passionate <strong>{profile?.role}</strong> from{' '}
+                <strong>{profile?.country}!</strong>
               </p>
               <div>
                 <p>
                   I develop websites using ...{' '}
                   <TypingEffect
-                    strings={[
-                      'React',
-                      'NextJS',
-                      'Vite',
-                      'WordPress',
-                      'NodeJS',
-                      'HTML',
-                    ]}
+                    strings={skills}
                     typeSpeed={100}
                     backSpeed={50}
                     loop={true}

@@ -1,5 +1,9 @@
 export interface Profile {
   name: string;
+  shortName: string;
+  textLogo: string;
+  role: string;
+  country: string;
   bio: string;
   dob: string;
   mobileNo: string;
@@ -8,6 +12,7 @@ export interface Profile {
     url: string;
   };
   slug: string;
+  skills: any;
 }
 
 export interface Project {

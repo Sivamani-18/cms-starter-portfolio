@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { TypingEffect } from 'react-typed.ts';
+import ThreeDTilt from '3dtilt';
 
-import './HeroCard.css';
 import { Profile, UsefulResource } from '@/types/types';
 import { sayGreeting } from '@/utils/HelperFunctions';
 import LinkGroup from '../UI/LinkGroup/LinkGroup';
+
+import './HeroCard.css';
 
 interface HeroCardProps {}
 
@@ -97,7 +99,27 @@ export const HeroCard: React.FC<HeroCardProps> = ({}) => {
                 />
               </div>
             </div>
-            <div className='col-span-1 image-block'></div>
+            <div className='col-span-1 image-block'>
+              <ThreeDTilt
+                options={{
+                  perspective: 1000,
+                  maxTilt: 10,
+                  scale: 1,
+                  speed: 300,
+                  easing: 'cubic-bezier(.03,.98,.52,.99)',
+                  transition: true,
+                }}
+                className='hero-image-wrapper'
+              >
+                <div>
+                  <img
+                    className='hero-image-fluid'
+                    src={profile?.profilePicture.url}
+                    alt='hero main image'
+                  />
+                </div>
+              </ThreeDTilt>
+            </div>
           </div>
         </div>
       </div>

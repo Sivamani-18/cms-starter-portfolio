@@ -33,3 +33,92 @@
 .typing-effect {
   @apply text-primary-light dark:text-primary-dark;
 }
+
+/* Keyframe animations */
+@keyframes anim-rotate {
+  0% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+@keyframes anim-updown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.elem-updown {
+  animation: anim-updown 5s infinite;
+}
+@keyframes anim-move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.elem-move {
+  animation: anim-move 5s infinite;
+}
+@keyframes anim-rotate-full {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.elem-rotate-full {
+  animation: anim-rotate-full 12s infinite;
+}
+@keyframes anim-zoom {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+.elem-zoom {
+  animation: anim-zoom 5s infinite;
+}
+
+.tilt-image-wrapper {
+  @apply relative;
+  transform-style: preserve-3d;
+}
+
+.hero-area .hero-image-wrapper:after {
+  @apply bg-primary-light dark:bg-primary-dark rounded-xl -z-10 absolute;
+  content: '';
+  width: 380px;
+  height: 300px;
+  top: 60px;
+  right: -10px;
+  transform: rotate(-35deg);
+  animation: anim-rotate 8s infinite;
+}
+
+.hero-image-fluid {
+  @apply w-[66%] ml-auto mr-0 max-w-full min-h-[370px] h-auto rounded-2xl;
+}

@@ -4,6 +4,7 @@ import { TypingEffect } from 'react-typed.ts';
 import './HeroCard.css';
 import { Profile, UsefulResource } from '@/types/types';
 import { sayGreeting } from '@/utils/HelperFunctions';
+import LinkGroup from '../UI/LinkGroup/LinkGroup';
 
 interface HeroCardProps {}
 
@@ -85,6 +86,16 @@ export const HeroCard: React.FC<HeroCardProps> = ({}) => {
                     className='font-bold'
                   />
                 </p>
+                <LinkGroup
+                  contactHref='#contact'
+                  socialLinks={{
+                    facebook: 'https://www.facebook.com/sivasubramaniyam1824/',
+                    linkedin:
+                      'https://www.linkedin.com/in/sivasubramaniyam-v-a2b967103/',
+                    instagram: 'https://www.instagram.com/sivasubramaniyam_v/',
+                    github: 'https://github.com/Sivamani-18',
+                  }}
+                />
               </div>
             </div>
             <div className='col-span-1 image-block'></div>

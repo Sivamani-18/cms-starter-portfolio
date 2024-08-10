@@ -8,6 +8,9 @@ Welcome to the CMS Starter Portfolio project! This portfolio is currently a work
 
 If you find this project intriguing, please consider ⭐ **starring** or 🍴 **forking** the repository to stay informed about the latest developments and releases!
 
+![image](https://github.com/user-attachments/assets/101cf6c5-fbab-46ae-89de-36c0f700549a)
+
+
 ## Portfolio Architecture Overview
 
 ```mermaid
@@ -29,10 +32,13 @@ graph TD
     subgraph PortfolioContent
         Projects[(Projects)]
         Profile[(Profile)]
+        Blog[(Blog)]
         UsefulResources[(Useful Resources)]
+    end
+
+    subgraph ProfileSection
         SocialMediaLinks[(Social Media Links)]
         Skills[(Skills)]
-        Blog[(Blog)]
     end
 
     Netlify --> Nextjs
@@ -42,10 +48,10 @@ graph TD
 
     Hygraph --> Projects
     Hygraph --> Profile
-    Hygraph --> UsefulResources
-    Hygraph --> SocialMediaLinks
-    Hygraph --> Skills
+    Profile --> SocialMediaLinks
+    Profile --> Skills
     Hygraph --> Blog
+    Hygraph --> UsefulResources
 ```
 
 ### Key Features

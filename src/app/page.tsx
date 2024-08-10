@@ -70,7 +70,11 @@ const Home: FC = () => {
   return (
     <div className='min-h-screen bg-gray-100'>
       {loading && <Loader />}
-      <Header onThemeChange={handleThemeChange} LogoImage={logoUrl} />
+      <Header
+        onThemeChange={handleThemeChange}
+        LogoImage={logoUrl}
+        TextLogo={profile.textLogo}
+      />
       <main>
         <div className='hero-section'>
           <HeroCard />

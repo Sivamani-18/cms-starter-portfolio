@@ -18,7 +18,8 @@ const config: Config = {
       mxl: { raw: '(min-width: 1921px)' },
     },
     fontFamily: {
-      sans: ['Poppins', 'sans-serif'],
+      pop: ['Poppins', 'sans-serif'],
+      mon: ['Montserrat', 'sans-serif'],
     },
     fontSize: {
       base: ['15px', '30px'],

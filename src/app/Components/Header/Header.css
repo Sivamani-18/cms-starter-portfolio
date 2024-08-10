@@ -7,7 +7,7 @@
 }
 
 .nav-link {
-  @apply text-lg font-sans font-bold text-navbarContent-light;
+  @apply text-lg font-pop font-bold text-navbarContent-light;
 }
 
 .nav-link.active {
@@ -15,5 +15,10 @@
 }
 
 .navbar-brand {
-  @apply bg-white rounded-full p-1;
+  @apply bg-white rounded-full p-1 min-h-[45px] min-w-[45px] flex;
+  line-height: 0;
+}
+
+.text-logo {
+  @apply relative text-primary-light dark:text-primary-dark font-mon text-[50px] font-bold min-w-[60px] min-h-[60px] flex justify-center items-center m-auto;
 }

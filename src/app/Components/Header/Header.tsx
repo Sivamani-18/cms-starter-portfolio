@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 
-import Logo from '../../assets/image/logo.svg';
-
 import '../../Components/Header/Header.css';
 import ThemeToggle from '../Theme/ThemeToggle';
 import Image from 'next/image';
@@ -10,11 +8,13 @@ import Image from 'next/image';
 interface HeaderProps {
   onThemeChange: (loading: boolean) => void;
   LogoImage?: string | undefined;
+  TextLogo?: string | undefined;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onThemeChange,
   LogoImage = '',
+  TextLogo = 'S',
 }) => {
   return (
     <header className='site-header' id='site-header'>
@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({
                 unoptimized
               />
             ) : (
-              <Logo width={100} height={50} alt='logo' />
+              <h1 className='text-logo'>{TextLogo}</h1>
             )}
           </Link>
           <button

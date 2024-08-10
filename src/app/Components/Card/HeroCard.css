@@ -19,11 +19,11 @@
 }
 
 .hero-area .hero-head {
-  @apply text-[90px] font-sans font-bold;
+  @apply text-[90px] font-pop font-bold;
 }
 
 .hero-area .hero-head small {
-  @apply font-sans text-[24px] block mb-3;
+  @apply font-pop text-[24px] block mb-3;
 }
 
 .typed-cursor {

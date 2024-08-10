@@ -13,6 +13,14 @@ export interface Profile {
   };
   slug: string;
   skills: any;
+  socialMediaLink: {
+    fiverr?: string;
+    facebook?: string;
+    twitter?: string;
+    linkedin?: string;
+    instagram?: string;
+    github?: string;
+  };
 }
 
 export interface Project {

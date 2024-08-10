@@ -17,6 +17,14 @@ export const GET_PROFILE = gql`
       }
       slug
       skills
+      socialMediaLink {
+        fiverr
+        facebook
+        twitter
+        linkedin
+        github
+        instagram
+      }
     }
   }
 `;

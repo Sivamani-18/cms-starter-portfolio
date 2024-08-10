@@ -89,11 +89,10 @@ export const HeroCard: React.FC<HeroCardProps> = ({}) => {
                 <LinkGroup
                   contactHref='#contact'
                   socialLinks={{
-                    facebook: 'https://www.facebook.com/sivasubramaniyam1824/',
-                    linkedin:
-                      'https://www.linkedin.com/in/sivasubramaniyam-v-a2b967103/',
-                    instagram: 'https://www.instagram.com/sivasubramaniyam_v/',
-                    github: 'https://github.com/Sivamani-18',
+                    facebook: profile?.socialMediaLink.facebook,
+                    linkedin: profile?.socialMediaLink.linkedin,
+                    instagram: profile?.socialMediaLink.instagram,
+                    github: profile?.socialMediaLink.github,
                   }}
                 />
               </div>

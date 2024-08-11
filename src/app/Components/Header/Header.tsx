@@ -6,7 +6,7 @@ import ThemeToggle from '../Theme/ThemeToggle';
 import Image from 'next/image';
 
 interface HeaderProps {
-  onThemeChange: (loading: boolean) => void;
+  onThemeChange: (theme: string, loading: boolean) => void;
   LogoImage?: string | undefined;
   TextLogo?: string | undefined;
 }

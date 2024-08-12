@@ -8,9 +8,11 @@ import LinkGroup from '../UI/LinkGroup/LinkGroup';
 
 import './HeroCard.css';
 
-interface HeroCardProps {}
+interface HeroCardProps {
+  dynamicHeight?: number;
+}
 
-export const HeroCard: React.FC<HeroCardProps> = ({}) => {
+export const HeroCard: React.FC<HeroCardProps> = ({ dynamicHeight = 90 }) => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [resources, setResources] = useState<UsefulResource | null>(null);
 
@@ -48,7 +50,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({}) => {
 
   return (
     <div
-      className='hero-area'
+      className={`hero-area pt-[${dynamicHeight}px]`}
       style={{
         backgroundImage: `url(${heroBG})`,
         backgroundRepeat: 'no-repeat',
@@ -56,8 +58,11 @@ export const HeroCard: React.FC<HeroCardProps> = ({}) => {
       }}
     >
       <div className='container'>
-        <div className='hero-content'>
-          <div className='grid grid-cols-2 items-center justify-center w-full'>
+        <div
+          className='hero-content'
+          style={{ minHeight: `calc(100vh - ${dynamicHeight}px)` }}
+        >
+          <div className='grid grid-cols-2 items-center justify-center w-full mt-[-30px]'>
             <div className='col-span-1 content-block'>
               <h1 className='hero-head'>
                 <small>{sayGreeting()}, I&apos;m</small>

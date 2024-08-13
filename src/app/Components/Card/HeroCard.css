@@ -3,7 +3,8 @@
 }
 
 .hero-area .hero-content {
-  @apply min-h-screen relative z-10 flex justify-center;
+  @apply relative z-10 flex justify-center;
+  min-height: calc(100vh - 90px);
 }
 
 .hero-area:after {
@@ -108,13 +109,21 @@
   transform-style: preserve-3d;
 }
 
+.hero-area .hero-image-wrapper {
+  @apply relative;
+}
+
+.hero-area .hero-image-wrapper {
+  @apply relative;
+}
+
 .hero-area .hero-image-wrapper:after {
   @apply bg-primary-light dark:bg-primary-dark rounded-xl -z-10 absolute;
   content: '';
-  width: 380px;
-  height: 300px;
-  top: 60px;
-  right: -10px;
+  width: 66%;
+  height: 100%;
+  top: 0px;
+  right: 0px;
   transform: rotate(-35deg);
   animation: anim-rotate 8s infinite;
 }

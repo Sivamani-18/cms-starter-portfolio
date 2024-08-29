@@ -129,5 +129,5 @@
 }
 
 .hero-image-fluid {
-  @apply w-[66%] ml-auto mr-0 max-w-full min-h-[370px] h-auto rounded-2xl;
+  @apply lg:w-[66%] ml-auto mr-0 max-w-full min-h-[370px] h-auto rounded-2xl;
 }

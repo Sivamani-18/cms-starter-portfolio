@@ -1,4 +1,4 @@
-'use clien';
+'use client';
 import React, { useEffect } from 'react';
 import LightMode from '../../assets/image/light-mode.svg';
 import DarkMode from '../../assets/image/dark-mode.svg';

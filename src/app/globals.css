@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 
 .custom-modal .ant-modal-content {
   @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white rounded-2xl;

@@ -8,15 +8,6 @@ const config: Config = {
   ],
   darkMode: 'class',
   theme: {
-    screens: {
-      xl: { max: '1600px' },
-      lg: { max: '1199px' },
-      md: { max: '991px' },
-      sm: { max: '767px' },
-      xs: { max: '575px' },
-      xxs: { max: '480px' },
-      mxl: { raw: '(min-width: 1921px)' },
-    },
     fontFamily: {
       pop: ['Poppins', 'sans-serif'],
       mon: ['Montserrat', 'sans-serif'],

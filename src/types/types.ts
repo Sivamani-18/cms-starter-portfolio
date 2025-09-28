@@ -7,6 +7,7 @@ export interface Profile {
   bio: string;
   dob: string;
   mobileNo: string;
+  email: string;
   contactInfo: string;
   profilePicture: {
     url: string;

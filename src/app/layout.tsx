@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import { FavIcon } from './Components/Favicon/FavIcon';
 import './globals.css';
 import './theme.css';
+import { ReduxProviderWrapper } from './Provider';
 
 // Specify font subsets and weights with literals
 const poppins = Poppins({
@@ -33,7 +34,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <FavIcon />
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <ReduxProviderWrapper>{children}</ReduxProviderWrapper>
+      </body>
     </html>
   );
 }

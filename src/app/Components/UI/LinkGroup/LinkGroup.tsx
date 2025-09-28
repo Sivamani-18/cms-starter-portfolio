@@ -9,7 +9,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 interface LinkGroupProps {
-  contactHref: string;
+  hideContact?: boolean;
+  contactHref?: string;
   socialLinks: {
     facebook?: string;
     twitter?: string;
@@ -19,15 +20,17 @@ interface LinkGroupProps {
   };
 }
 
-const LinkGroup: React.FC<LinkGroupProps> = ({ contactHref, socialLinks }) => {
+const LinkGroup: React.FC<LinkGroupProps> = ({ contactHref, socialLinks, hideContact }) => {
   return (
     <div className='flex items-center space-x-4 mt-7'>
-      <a
-        className='btn-main text-btnPrimaryContent-light bg-btnPrimary-light hover:bg-btnPrimary-light/80 dark:bg-btnPrimary-dark dark:hover:bg-btnPrimary-dark/80 rounded py-2 px-4'
-        href={contactHref}
-      >
-        Contact Me
-      </a>
+      {contactHref ?  (
+        <a
+          className='btn-main text-btnPrimaryContent-light bg-btnPrimary-light hover:bg-btnPrimary-light/80 dark:bg-btnPrimary-dark dark:hover:bg-btnPrimary-dark/80 rounded py-2 px-4'
+          href={contactHref}
+        >
+          Contact Me
+        </a>
+      ):null}
       <ul className='hero-social flex items-center space-x-4'>
         {socialLinks.facebook && (
           <li>

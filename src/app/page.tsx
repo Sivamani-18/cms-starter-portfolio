@@ -11,6 +11,8 @@ import { Portfolio } from './Components/Section/Portfolio';
 import { Services } from './Components/Section/Services';
 import { services } from './userData';
 import { Blog } from './Components/Section/Blog';
+import { ArrowUp } from 'lucide-react';
+import { Contact } from './Components/Section/Contact';
 
 const Home: FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -18,6 +20,20 @@ const Home: FC = () => {
   const [resources, setResources] = useState<UsefulResource | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentTheme, setCurrentTheme] = useState('dark');
+   const [scrolled, setScrolled] = useState(false);
+   const [showScrollTop, setShowScrollTop] = useState(false);
+
+
+   useEffect(() => {
+       const handleScroll = () => {
+         const scrollPosition = window.scrollY;
+         setScrolled(scrollPosition > 50);
+         setShowScrollTop(scrollPosition > 300);
+       };
+   
+       window.addEventListener('scroll', handleScroll);
+       return () => window.removeEventListener('scroll', handleScroll);
+     }, []);
 
   useEffect(() => {
     const handleLoading = () => setLoading(false);
@@ -78,22 +94,19 @@ const Home: FC = () => {
   console.log('isTheme', currentTheme);
 
 
-    const scrollToSection = (sectionId:any) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <MagicMouse color={currentTheme === 'dark' ? '#1da1f3' : '#fd562a'}>
       <div className='min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900'>
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-      </div>
+        {/* Animated Background */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        </div>
 
         {loading && <Loader />}
         <Header
@@ -109,7 +122,17 @@ const Home: FC = () => {
           <Portfolio projects={projects} />
           <Services services={services} />
           <Blog />
+          <Contact />
         </main>
+        {/* Scroll to Top Button */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-full shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-110 flex items-center justify-center z-50"
+          >
+            <ArrowUp size={24} />
+          </button>
+        )}
       </div>
     </MagicMouse>
   );

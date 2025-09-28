@@ -18,6 +18,7 @@
     "3dtilt": "^1.0.4",
     "faviconify": "^1.0.4",
     "graphql": "^16.9.0",
+    "lucide-react": "^0.544.0",
     "magicmouse.ts": "^1.0.5",
     "next": "14.2.5",
     "react": "^18",

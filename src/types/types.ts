@@ -31,6 +31,7 @@ export interface Project {
   image: {
     url: string;
   };
+  showProject:boolean;
 }
 
 export interface Asset {

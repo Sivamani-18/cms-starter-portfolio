@@ -1,5 +1,5 @@
 .hero-area {
-  @apply relative z-10 overflow-hidden bg-cover text-white;
+  @apply relative z-10 overflow-hidden text-white;
 }
 
 .hero-area .hero-content {
@@ -15,8 +15,6 @@
   bottom: 0;
   right: 0;
   z-index: -1;
-
-  @apply bg-black bg-opacity-[0.2] dark:bg-opacity-[0.5];
 }
 
 .hero-area .hero-head {

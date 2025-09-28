@@ -6,6 +6,8 @@ import { Header } from './Components/Header/Header';
 import { HeroCard } from './Components/Card/HeroCard';
 import Loader from './Components/Loader/Loader';
 import MagicMouse from 'magicmouse.ts';
+import { About } from './Components/Section/About';
+import { Portfolio } from './Components/Section/Portfolio';
 
 const Home: FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -74,7 +76,14 @@ const Home: FC = () => {
 
   return (
     <MagicMouse color={currentTheme === 'dark' ? '#1da1f3' : '#fd562a'}>
-      <div className='min-h-screen bg-gray-100'>
+      <div className='min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900'>
+      {/* Animated Background */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+      </div>
+
         {loading && <Loader />}
         <Header
           onThemeChange={handleThemeChange}
@@ -85,59 +94,8 @@ const Home: FC = () => {
           <div className='hero-section'>
             <HeroCard />
           </div>
-          <div className='max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
-            <div className='bg-white overflow-hidden shadow-sm sm:rounded-lg'>
-              <div className='p-6 bg-white border-b border-gray-200'>
-                <div className='flex items-center space-x-4'>
-                  <img
-                    className='size-40 rounded-full'
-                    src={profile.profilePicture.url}
-                    alt={profile.name}
-                  />
-                  <div>
-                    <h2 className='text-xl font-medium text-gray-900'>
-                      {profile.name}
-                    </h2>
-                    <p className='text-gray-600'>{profile.bio}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className='mt-8'>
-              <h2 className='text-2xl font-bold text-gray-900'>Projects</h2>
-              <div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-                {projects.map((project) => (
-                  <div
-                    key={project.slug}
-                    className='bg-white shadow-sm rounded-lg p-4'
-                  >
-                    <h3 className='text-lg font-semibold text-gray-900'>
-                      {project.name}
-                    </h3>
-                    <p className='mt-2 text-gray-600'>{project.description}</p>
-                    {project.image?.url && (
-                      <img
-                        className='mt-2 w-full h-48 object-cover rounded-md'
-                        src={project.image.url}
-                        alt={project.name}
-                      />
-                    )}
-                    <div className='mt-2'>
-                      {project.tags.map((tag, index) => (
-                        <span
-                          key={index}
-                          className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2'
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <About profile={profile} />
+          <Portfolio projects={projects} />
         </main>
       </div>
     </MagicMouse>

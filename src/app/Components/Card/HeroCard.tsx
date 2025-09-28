@@ -52,9 +52,6 @@ export const HeroCard: React.FC<HeroCardProps> = ({ dynamicHeight = 90 }) => {
     <div
       className='hero-area'
       style={{
-        backgroundImage: `url(${heroBG})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
         paddingTop: `${dynamicHeight}px`,
       }}
     >

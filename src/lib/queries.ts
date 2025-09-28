@@ -4,14 +4,28 @@ export const GET_PROFILE = gql`
   query GetProfile {
     profiles {
       name
+      shortName
+      textLogo
+      role
       bio
+      country
       dob
       mobileNo
+      email
       contactInfo
       profilePicture {
         url
       }
       slug
+      skills
+      socialMediaLink {
+        fiverr
+        facebook
+        twitter
+        linkedin
+        github
+        instagram
+      }
     }
   }
 `;
@@ -23,7 +37,23 @@ export const GET_PROJECTS = gql`
       slug
       description
       tags
+      showProject
       image {
+        url
+      }
+    }
+  }
+`;
+
+export const GetUsefulResources = gql`
+  query {
+    usefulResources {
+      logo {
+        id
+        url
+      }
+      heroCardBg {
+        id
         url
       }
     }

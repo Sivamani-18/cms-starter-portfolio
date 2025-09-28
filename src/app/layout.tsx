@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
+import { FavIcon } from './Components/Favicon/FavIcon';
 import './globals.css';
+import './theme.css';
+import { ReduxProviderWrapper } from './Provider';
 
 // Specify font subsets and weights with literals
 const poppins = Poppins({
@@ -9,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Sivamani | Personal Portfolio',
+  title: 'Sivasubramaniyam | Front End Developer',
   description:
     'Welcome to the personal portfolio of Sivasubramaniyam, a seasoned Front-End Lead Developer with over a decade of experience in crafting innovative, high-performance web applications. Specializing in React.js, Redux, and JavaScript, Sivasubramaniyam brings a deep understanding of modern web technologies and design principles. Explore a diverse range of projects that showcase expertise in UI/UX design, NPM library development, and responsive web design using HTML5, CSS3, and Tailwind CSS. With a strong background in CMS integration, SEO optimization, and technical support, Sivasubramaniyam is committed to delivering exceptional digital experiences. Discover how a passion for technology and a focus on continuous learning have driven a successful career in web development, from contributing to open-source projects to leading complex web solutions in the healthcare technology sector. Dive into a portfolio that reflects a dedication to excellence, innovation, and the pursuit of knowledge, all while maintaining a personal touch through gaming, anime, and social activities.',
   keywords: `
@@ -30,10 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      {/* <head>
-        <link rel='icon' href='./favicon.svg' />
-      </head> */}
-      <body className={poppins.className}>{children}</body>
+      <FavIcon />
+      <body className={poppins.className}>
+        <ReduxProviderWrapper>{children}</ReduxProviderWrapper>
+      </body>
     </html>
   );
 }

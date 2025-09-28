@@ -1,12 +1,53 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
-import { Profile, Project } from '../types/types';
+import { Profile, Project, UsefulResource } from '../types/types';
 import { Header } from './Components/Header/Header';
+import { HeroCard } from './Components/Card/HeroCard';
+import Loader from './Components/Loader/Loader';
+import MagicMouse from 'magicmouse.ts';
+import { About } from './Components/Section/About';
+import { Portfolio } from './Components/Section/Portfolio';
+import { Services } from './Components/Section/Services';
+import { services } from './userData';
+import { Blog } from './Components/Section/Blog';
+import { ArrowUp } from 'lucide-react';
+import { Contact } from './Components/Section/Contact';
 
 const Home: FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [resources, setResources] = useState<UsefulResource | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [currentTheme, setCurrentTheme] = useState('dark');
+   const [scrolled, setScrolled] = useState(false);
+   const [showScrollTop, setShowScrollTop] = useState(false);
+
+
+   useEffect(() => {
+       const handleScroll = () => {
+         const scrollPosition = window.scrollY;
+         setScrolled(scrollPosition > 50);
+         setShowScrollTop(scrollPosition > 300);
+       };
+   
+       window.addEventListener('scroll', handleScroll);
+       return () => window.removeEventListener('scroll', handleScroll);
+     }, []);
+
+  useEffect(() => {
+    const handleLoading = () => setLoading(false);
+    window.addEventListener('load', handleLoading);
+    return () => window.removeEventListener('load', handleLoading);
+  }, []);
+
+  const handleThemeChange = (theme: string, isLoading: boolean) => {
+    setLoading(isLoading);
+    setCurrentTheme(theme);
+    if (!isLoading) {
+      // Add any additional logic needed after theme change
+    }
+  };
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -31,76 +72,69 @@ const Home: FC = () => {
       }
     };
 
+    const fetchResources = async () => {
+      try {
+        const res = await fetch('/api/usefulresources');
+        const data = await res.json();
+        setResources(data.resources);
+      } catch (error) {
+        console.error('Failed to fetch resources data', error);
+      }
+    };
+
+    fetchResources();
     fetchProfile();
     fetchProjects();
   }, []);
 
   if (!profile) return <div>Loading...</div>;
 
-  return (
-    <div className='min-h-screen bg-gray-100'>
-      <Header />
-      <header className='bg-white shadow'>
-        <div className='max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8'>
-          <h1 className='text-3xl font-bold text-gray-900'>Profile</h1>
-        </div>
-      </header>
-      <main>
-        <div className='max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
-          <div className='bg-white overflow-hidden shadow-sm sm:rounded-lg'>
-            <div className='p-6 bg-white border-b border-gray-200'>
-              <div className='flex items-center space-x-4'>
-                <img
-                  className='size-40 rounded-full'
-                  src={profile.profilePicture.url}
-                  alt={profile.name}
-                />
-                <div>
-                  <h2 className='text-xl font-medium text-gray-900'>
-                    {profile.name}
-                  </h2>
-                  <p className='text-gray-600'>{profile.bio}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+  const logoUrl = resources?.logo?.url || '';
 
-          <div className='mt-8'>
-            <h2 className='text-2xl font-bold text-gray-900'>Projects</h2>
-            <div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-              {projects.map((project) => (
-                <div
-                  key={project.slug}
-                  className='bg-white shadow-sm rounded-lg p-4'
-                >
-                  <h3 className='text-lg font-semibold text-gray-900'>
-                    {project.name}
-                  </h3>
-                  <p className='mt-2 text-gray-600'>{project.description}</p>
-                  {project.image?.url && (
-                    <img
-                      className='mt-2 w-full h-48 object-cover rounded-md'
-                      src={project.image.url}
-                      alt={project.name}
-                    />
-                  )}
-                  <div className='mt-2'>
-                    {project.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2'
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+  console.log('isTheme', currentTheme);
+
+
+    const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <MagicMouse color={currentTheme === 'dark' ? '#1da1f3' : '#fd562a'}>
+      <div className='min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900'>
+        {/* Animated Background */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         </div>
-      </main>
-    </div>
+
+        {loading && <Loader />}
+        <Header
+          onThemeChange={handleThemeChange}
+          LogoImage={logoUrl}
+          TextLogo={profile.textLogo}
+        />
+        <main>
+          <section className='hero-section'>
+            <HeroCard />
+          </section>
+          <About profile={profile} />
+          <Portfolio projects={projects} />
+          <Services services={services} />
+          <Blog />
+          <Contact />
+        </main>
+        {/* Scroll to Top Button */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-full shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-110 flex items-center justify-center z-50"
+          >
+            <ArrowUp size={24} />
+          </button>
+        )}
+      </div>
+    </MagicMouse>
   );
 };
 

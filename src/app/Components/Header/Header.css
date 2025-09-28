@@ -1,5 +1,8 @@
 .site-header {
   @apply absolute w-full z-[1001];
+    transition: background 200ms ease, box-shadow 200ms ease, backdrop-filter 200ms ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .navbar-nav {
@@ -21,4 +24,16 @@
 
 .text-logo {
   @apply relative text-primary-light dark:text-primary-dark font-mon text-[50px] font-bold min-w-[60px] min-h-[60px] flex justify-center items-center m-auto;
+}
+
+
+.site-header.is-stuck {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15,15,30,0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }

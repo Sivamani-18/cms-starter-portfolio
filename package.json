@@ -17,6 +17,7 @@
     "@graphql-tools/schema": "^10.0.4",
     "@reduxjs/toolkit": "^2.9.0",
     "3dtilt": "^1.0.4",
+    "antd": "^5.27.4",
     "faviconify": "^1.0.4",
     "graphql": "^16.9.0",
     "lucide-react": "^0.544.0",

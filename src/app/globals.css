@@ -4,3 +4,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.custom-modal .ant-modal-content {
+  @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white rounded-2xl;
+}
+
+.custom-modal .ant-modal-header,
+.custom-modal .ant-modal-footer {
+  @apply bg-transparent-light border-0;
+}
+
+.custom-modal .ant-modal-title {
+  @apply text-white font-bold;
+}
+
+.custom-modal .ant-modal-close-x {
+  @apply text-white hover:text-white/70 transition-colors;
+}
+
+/* Make carousel arrows overlay on image */
+.custom-modal .ant-carousel .slick-prev,
+.custom-modal .ant-carousel .slick-next {
+  @apply absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 p-3
+         bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 hover:bg-white/40 rounded-full transition-colors;
+  color: white !important;
+}
+
+.custom-modal .ant-carousel .slick-prev {
+  left: 12px;
+}
+
+.custom-modal .ant-carousel .slick-next {
+  right: 12px;
+}
+
+.custom-modal .ant-carousel .slick-prev::before,
+.custom-modal .ant-carousel .slick-next::before {
+  display: none;
+}
+

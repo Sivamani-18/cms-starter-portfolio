@@ -18,7 +18,7 @@ export const services = [
         iconColor: 'text-blue-500'
     },
     {
-        title: 'UI/UX Design',
+        title: 'UI Development',
         description: 'Creating beautiful and user-friendly interfaces with focus on user experience and modern design principles.',
         icon: Palette,
         gradient: 'from-pink-500/20 to-rose-500/20',

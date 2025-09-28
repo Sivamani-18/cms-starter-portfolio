@@ -7,7 +7,7 @@ interface AboutProps {
 
   const skills = [
     { name: 'React.js', icon: Code, level: 95, color: 'from-blue-500 to-cyan-500' },
-    { name: 'UI Design', icon: Palette, level: 90, color: 'from-pink-500 to-rose-500' },
+    { name: 'UI Developer', icon: Palette, level: 90, color: 'from-pink-500 to-rose-500' },
     { name: 'SEO', icon: Search, level: 88, color: 'from-green-500 to-emerald-500' },
     { name: 'NPM Libraries', icon: Package, level: 85, color: 'from-purple-500 to-violet-500' },
     { name: 'WordPress', icon: Globe, level: 82, color: 'from-orange-500 to-amber-500' },

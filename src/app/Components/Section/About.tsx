@@ -35,11 +35,11 @@ export const About: React.FC<AboutProps> = ({profile}) => {
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-6 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-xl border border-white/10">
-                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">50+</div>
+                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent text-white">50+</div>
                   <div className="text-white/70 text-sm lg:text-base">Projects Completed</div>
                 </div>
                 <div className="text-center p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl border border-white/10">
-                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">5+</div>
+                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent text-white">5+</div>
                   <div className="text-white/70 text-sm lg:text-base">Years Experience</div>
                 </div>
               </div>

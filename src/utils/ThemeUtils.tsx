@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 export function useTheme() {
-  const [theme, setTheme] = useState<string | null>('light');
+  const [theme, setTheme] = useState<string | null>('dark');
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');

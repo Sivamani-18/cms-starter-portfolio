@@ -24,12 +24,12 @@ export const Portfolio: React.FC<PortfolioProps> = ({ projects }) => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {projects.filter((project) => project.showProject).map((project: any, index: number) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {projects.map((project: any, index: number) => (
             <div key={index} className="group bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-500 transform hover:scale-105">
               <div className="relative overflow-hidden">
                 <img
-                  src={project.image.url}
+                  src={Array.isArray(project.image) ? project.image[0]?.url : project.image?.url}
                   alt={project.name}
                   className="w-full h-48 lg:h-56 object-cover transition-transform duration-500 group-hover:scale-110"
                 />

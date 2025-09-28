@@ -8,13 +8,16 @@ import Loader from './Components/Loader/Loader';
 import MagicMouse from 'magicmouse.ts';
 import { About } from './Components/Section/About';
 import { Portfolio } from './Components/Section/Portfolio';
+import { Services } from './Components/Section/Services';
+import { services } from './userData';
+import { Blog } from './Components/Section/Blog';
 
 const Home: FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
   const [resources, setResources] = useState<UsefulResource | null>(null);
   const [loading, setLoading] = useState(true);
-  const [currentTheme, setCurrentTheme] = useState('light');
+  const [currentTheme, setCurrentTheme] = useState('dark');
 
   useEffect(() => {
     const handleLoading = () => setLoading(false);
@@ -74,6 +77,14 @@ const Home: FC = () => {
 
   console.log('isTheme', currentTheme);
 
+
+    const scrollToSection = (sectionId:any) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <MagicMouse color={currentTheme === 'dark' ? '#1da1f3' : '#fd562a'}>
       <div className='min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900'>
@@ -91,11 +102,13 @@ const Home: FC = () => {
           TextLogo={profile.textLogo}
         />
         <main>
-          <div className='hero-section'>
+          <section className='hero-section'>
             <HeroCard />
-          </div>
+          </section>
           <About profile={profile} />
           <Portfolio projects={projects} />
+          <Services services={services} />
+          <Blog />
         </main>
       </div>
     </MagicMouse>

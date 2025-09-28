@@ -36,6 +36,7 @@ export const GET_PROJECTS = gql`
       slug
       description
       tags
+      showProject
       image {
         url
       }

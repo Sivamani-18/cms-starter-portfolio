@@ -25,7 +25,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ projects }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {projects.map((project: any, index: number) => (
+          {projects.filter((project) => project.showProject).map((project: any, index: number) => (
             <div key={index} className="group bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-500 transform hover:scale-105">
               <div className="relative overflow-hidden">
                 <img
